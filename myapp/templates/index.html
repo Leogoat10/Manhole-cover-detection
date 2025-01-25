@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页界面</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.css">
+</head>
+<body>
+<!--顶部-->
+<header class="header left">
+    <div class="left nav">
+        <ul>
+            <li class="nav_active"><i class="nav_1"></i><a href={% url 'index'%}>数据概览</a> </li>
+            <li><i class="nav_7"></i><a href={% url 'static1'%}>查询统计</a> </li>
+            <li><i class="nav_4"></i><a href={% url 'table1'%}>表格界面</a> </li>
+            </ul>
+    </div>
+    <div class="header_center left">
+        <h2><strong>井盖状态智能分析平台</strong></h2>
+        <p class="color_font"><small>Intelligent analysis platform for manhole cover status</small></p>
+    </div>
+</header>
+<!--内容部分-->
+<div class="con left">
+    <!--选择时间-->
+    <div class="select_time">
+        <div class="static_top left">
+            <i></i><span>总体概况</span>
+        </div>
+    </div>
+    <!--数据总概-->
+    <div class="con_div">
+        <div class="con_div_text left">
+            <div class="con_div_text01 left">
+                <div  class="left text01_img"><i class="fa fa-life-ring fa-3x" aria-hidden="true" /></div>
+                <div class="left text01_div">
+                    <p>井盖总数(个)</p>
+                    <p>179</p>
+                </div>
+            </div>
+            <div class="con_div_text01 right">
+                <div class="left text01_img"><i class="fa fa-medkit fa-3x" aria-hidden="true" /></div>
+                <div class="left text01_div">
+                    <p>备用应急井盖(个)</p>
+                    <p>16</p>
+                </div>
+            </div>
+        </div>
+        <div class="con_div_text left">
+            <div class="con_div_text01 left">
+                <div class="left text01_img"><i class="fa fa-circle-o fa-3x" aria-hidden="true" /></div>
+                <div class="left text01_div">
+                    <p>圆形&方井盖个数(个)</p>
+                    <p class="sky">119</p>
+                </div>
+            </div>
+            <div class="con_div_text01 right">
+                <div class="left text01_img"><i class="fa fa-bars fa-3x" aria-hidden="true" /></div>
+                <div class="left text01_div">
+                    <p>其它井盖个数(个)</p>
+                    <p class="sky">60</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="con_div_text left">
+
+            <div class="con_div_text01 left">
+                <img src="../static/img/info_6.png" class="left text01_img"/>
+                <div class="left text01_div">
+                    <p>近半年被打开井盖次数(次)</p>
+                    <p class="org">96</p>
+                </div>
+            </div>
+            <div class="con_div_text01 right">
+                <img src="../static/img/info_7.png" class="left text01_img"/>
+                <div class="left text01_div">
+                    <p>井盖平均使用时长(年)</p>
+                    <p class="org">7.5</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--统计分析图-->
+    <div class="div_any">
+        <div class="left div_any01">
+            <div class="div_any_child">
+                <div class="div_any_title">
+                    <div><i class="fa fa-life-ring fa-1x" aria-hidden="true" /></i>井盖类型统计</div>
+                </div>
+                <p id="char1" class="p_chart"></p>
+            </div>
+            <div class="div_any_child">
+                <div class="div_any_title"><img src="../static/img/title_2.png">井盖状态统计 </div>
+                <p id="char2" class="p_chart"></p>
+            </div>
+        </div>
+        <div class="div_any02 left ">
+            <div class="div_any_child div_height">
+                <div class="div_any_title any_title_width"><img src="../static/img/title_3.png">最新上传视频
+                    <button id="changevideo" style="padding: 1px;margin-left:6px;text-align: center;vertical-align: center"  class="btn btn-warning" onclick="changevideo()">查看下一个</button></div>
+                <div id="video_div">
+                    <video width="video_div" id="pro" controls="controls" loop muted  autoplay="autoplay" type="video/mp4" src="../static/img/井盖3.mp4" style="width: 100%;height: 90%"></video>
+                </div>
+            </div>
+        </div>
+        <div class="right div_any01">
+            <div class="div_any_child">
+                <div class="div_any_title"><img src="../static/img/title_4.png">井盖寿命统计 </div>
+                <p id="char3" class="p_chart"></p>
+            </div>
+            <div class="div_any_child">
+                <div class="div_any_title"><img src="../static/img/title_5.png">开盖水下作业统计（次）</div>
+                <p id="char4" class="p_chart"></p>
+            </div>
+        </div>
+    </div>
+    <!--分析表格-->
+    <div class="div_table">
+        <div class="left div_table_box">
+            <div class="div_any_child">
+                <div class="div_any_title"><img src="../static/img/title_4.png">井盖预计寿命</div>
+                <div class="table_p">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>排名</th>
+                            <th>井盖编号</th>
+                            <th>预计时长（年/月）</th>
+                        </tr>
+                        </thead>
+                <tbody>
+                <tr><td>1</td><td>zs42344</td><td>8年10个月</td></tr>
+                <tr><td>2</td><td>zs63455</td><td>8年10个月</td></tr>
+                <tr><td>3</td><td>zs17656</td><td>9年11个月</td></tr>
+                <tr><td>4</td><td>zs17454</td><td>10年7个月</td></tr>
+                <tr><td>5</td><td>zs83454</td><td>10年7个月</td></tr>
+                </tbody>
+            </table>
+                </div>
+
+            </div>
+        </div>
+        <div class="left div_table_box">
+            <div class="div_any_child">
+                <div class="div_any_title"><img src="../static/img/title_4.png">近期更换的井盖</div>
+                <div class="table_p">
+                    <table>
+                        <thead><tr>
+                            <th>排名</th>
+                            <th>更换前编号</th>
+                            <th>更换后编号</th>
+                            <th>更新日期</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr><td>1</td><td>zs532443</td><td>zs964433</td><td>2024/04/21</td></tr>
+                        <tr><td>2</td><td>zs643432</td><td>zs047433</td><td>2024/04/02</td></tr>
+                        <tr><td>3</td><td>zs175435</td><td>zs654344</td><td>2023/11/04</td></tr>
+                        <tr><td>4</td><td>zs885643</td><td>zs645644</td><td>2023/09/13</td></tr>
+                        <tr><td>5</td><td>zs005654</td><td>zs957483</td><td>2023/06/23</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="left div_table_box">
+            <div class="div_any_child">
+                <div class="div_any_title"><img src="../static/img/title_4.png">预计更换的井盖 </div>
+                <div class="table_p">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>排名</th>
+                            <th>井盖编号</th>
+                            <th>预计更新日期（年/月/日）</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr><td>1</td><td>zs756344</td><td>2024/06/13</td></tr>
+                        <tr><td>2</td><td>zs103454</td><td>2024/06/13</td></tr>
+                        <tr><td>3</td><td>zs634675</td><td>2024/06/13</td></tr>
+                        <tr><td>4</td><td>zs109654</td><td>2024/06/13</td></tr>
+                        <tr><td>—</td><td>—————</td><td>———————</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="left div_table_box">
+            <div class="div_any_child">
+                <div class="div_any_title"><img src="../static/img/title_4.png">近期水下作业的井盖</div>
+                <div class="table_p">
+                    <table>
+                        <thead><tr>
+                            <th>排名</th>
+                            <th>井盖编号</th>
+                            <th>最后一次作业日期</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr><td>1</td><td>zs784535</td><td>2024/04/19</td></tr>
+                        <tr><td>2</td><td>zs964243</td><td>2024/04/15</td></tr>
+                        <tr><td>3</td><td>zs245434</td><td>2024/03/24</td></tr>
+                        <tr><td>4</td><td>zs854643</td><td>2024/03/20</td></tr>
+                        <tr><td>5</td><td>zzs08453</td><td>2024/03/13</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const videos = ["../static/img/井盖2(1).mp4", "../static/img/井盖3(1).mp4", "../static/img/井盖3.mp4"];
+    let currentVideoIndex = 0;
+    function changevideo() {
+        const videoElement = document.getElementById("pro");
+        videoElement.src = videos[currentVideoIndex];
+        if (currentVideoIndex<videos.length){
+            currentVideoIndex++;
+        }else{
+            currentVideoIndex=0;
+
+        }
+        videoElement.play();
+    }
+</script>
+<script src="../static/js/jquery/jQuery-2.2.0.min.js"></script>
+<script src="../static/js/echarts-all.js"></script>
+<script src="../static/js/base.js"></script>
+<script src="../static/js/index.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5ieMMexWmzB9jivTq6oCRX9j&callback"></script>
+<script src="../static/js/map.js"></script>
+</body>
+</html>
