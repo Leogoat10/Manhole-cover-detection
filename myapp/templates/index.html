@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>首页界面</title>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="../static/js/jquery/jQuery-2.2.0.min.js"></script>
+    <script src="../static/js/echarts-all.js"></script>
+    <script src="../static/js/base.js"></script>
+    <script src="../static/js/static.js"></script>
+    <script src="../static/js/index.js"></script>
+
     <link rel="stylesheet" href="../static/plugins/bootstrap-3.4.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/js/bstable/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/js/bstable/css/bootstrap-table.css"/>
+    <link href="../static/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" type="text/css" />
+    <script>
+        const videos = ["../static/img/井盖2(1).mp4", "../static/img/井盖3(1).mp4", "../static/img/井盖3.mp4"];
+        let currentVideoIndex = 0;
+        function changevideo() {
+            const videoElement = document.getElementById("pro");
+            videoElement.src = videos[currentVideoIndex];
+            if (currentVideoIndex<videos.length){
+                currentVideoIndex++;
+            }else{
+                currentVideoIndex=0;
+
+            }
+            videoElement.play();
+        }
+    </script>
 </head>
 <body>
 <!--顶部-->
@@ -28,59 +52,6 @@
     <div class="select_time">
         <div class="static_top left">
             <i></i><span>总体概况</span>
-        </div>
-    </div>
-    <!--数据总概-->
-    <div class="con_div">
-        <div class="con_div_text left">
-            <div class="con_div_text01 left">
-                <div  class="left text01_img"><i class="fa fa-life-ring fa-3x" aria-hidden="true" /></div>
-                <div class="left text01_div">
-                    <p>井盖总数(个)</p>
-                    <p>179</p>
-                </div>
-            </div>
-            <div class="con_div_text01 right">
-                <div class="left text01_img"><i class="fa fa-medkit fa-3x" aria-hidden="true" /></div>
-                <div class="left text01_div">
-                    <p>备用应急井盖(个)</p>
-                    <p>16</p>
-                </div>
-            </div>
-        </div>
-        <div class="con_div_text left">
-            <div class="con_div_text01 left">
-                <div class="left text01_img"><i class="fa fa-circle-o fa-3x" aria-hidden="true" /></div>
-                <div class="left text01_div">
-                    <p>圆形&方井盖个数(个)</p>
-                    <p class="sky">119</p>
-                </div>
-            </div>
-            <div class="con_div_text01 right">
-                <div class="left text01_img"><i class="fa fa-bars fa-3x" aria-hidden="true" /></div>
-                <div class="left text01_div">
-                    <p>其它井盖个数(个)</p>
-                    <p class="sky">60</p>
-                </div>
-            </div>
-
-        </div>
-        <div class="con_div_text left">
-
-            <div class="con_div_text01 left">
-                <img src="../static/img/info_6.png" class="left text01_img"/>
-                <div class="left text01_div">
-                    <p>近半年被打开井盖次数(次)</p>
-                    <p class="org">96</p>
-                </div>
-            </div>
-            <div class="con_div_text01 right">
-                <img src="../static/img/info_7.png" class="left text01_img"/>
-                <div class="left text01_div">
-                    <p>井盖平均使用时长(年)</p>
-                    <p class="org">7.5</p>
-                </div>
-            </div>
         </div>
     </div>
     <!--统计分析图-->
@@ -213,27 +184,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    const videos = ["../static/img/井盖2(1).mp4", "../static/img/井盖3(1).mp4", "../static/img/井盖3.mp4"];
-    let currentVideoIndex = 0;
-    function changevideo() {
-        const videoElement = document.getElementById("pro");
-        videoElement.src = videos[currentVideoIndex];
-        if (currentVideoIndex<videos.length){
-            currentVideoIndex++;
-        }else{
-            currentVideoIndex=0;
-
-        }
-        videoElement.play();
-    }
-</script>
-<script src="../static/js/jquery/jQuery-2.2.0.min.js"></script>
-<script src="../static/js/echarts-all.js"></script>
-<script src="../static/js/base.js"></script>
-<script src="../static/js/index.js"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5ieMMexWmzB9jivTq6oCRX9j&callback"></script>
-<script src="../static/js/map.js"></script>
 </body>
+
 </html>
